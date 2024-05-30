@@ -12,3 +12,7 @@ from datetime import date
 
 def index(request):
     return render(request, "guitars/index.html")
+
+def guitar_list(request):
+    return render(request, "guitars/guitarlist.html")
+
