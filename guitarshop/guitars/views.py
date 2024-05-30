@@ -11,4 +11,4 @@ from datetime import date
 # 6. Add BASE_DIR to settings file to pick up global templates
 
 def index(request):
-    return render("guitars.index/html")
+    return render(request, "guitars/index.html")
