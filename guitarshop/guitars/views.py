@@ -16,3 +16,5 @@ def index(request):
 def guitar_list(request):
     return render(request, "guitars/guitarlist.html")
 
+def guitar_details(request, slug):
+    return render(request, "guitars/guitar.html")
