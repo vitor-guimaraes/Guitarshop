@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, Http404
 from datetime import date
+from django.urls import reverse
 
 
 # 1. Create View
@@ -10,11 +11,37 @@ from datetime import date
 # 5. Add app to installed apps on Project settings.py
 # 6. Add BASE_DIR to settings file to pick up global templates
 
-def index(request):
-    return render(request, "guitars/index.html")
+
+guitars = {
+        "Old Black": "Neil Young",    
+        "Micawber": "Keith Richards",    
+        "Greeny": "Peter Green/Gary Moore/Kirk Hammett",
+        "Mustang": "Kurt Cobain",
+        "Nº2": "Jimmy Page"
+}
+
+
+def index(request): 
+    all_guitars = list(guitars.keys())
+    all_guitarists = list(guitars.values())
+
+    # guitar_path = reverse("guitarlist")
+    # guitar_list = f"<h1><a href='{guitar_path}'></a></h1>"
+        # return HttpResponse(guitar_list)
+
+    return render(request, "guitars/index.html", {
+        "guitars": all_guitars,
+        "guitarists": all_guitarists
+    })
+
 
 def guitar_list(request):
-    return render(request, "guitars/guitarlist.html")
+    all_guitars = list(guitars.keys())
+
+    return render(request, "guitars/guitarlist.html", {
+        "guitars": all_guitars
+    })
+
 
 def guitar_details(request, slug):
     return render(request, "guitars/guitar.html")

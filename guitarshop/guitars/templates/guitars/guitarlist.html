@@ -3,9 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INDEX</title>
+    <title>Guitar List</title>
 </head>
 <body>
-    <h1>GUITAR LIST</h1>
+    <h1>Guitar List</h1>
+    <ul>
+        {% for guitar in guitars %}
+            <li>{{ guitar }}</li>
+            {% comment %} <li><a href="{% url 'guitarlist' slug %}"></a></li> {% endcomment %}
+        {% endfor %}
+    </ul>
 </body>
 </html>
