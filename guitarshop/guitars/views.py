@@ -45,7 +45,7 @@ def guitar_list(request):
 
 def guitar_details(request, slug):
     context = {
-        'slug': slug,
-        'details': 'These are the details for guitar with slug: ' + slug,
+        "slug": slug,
+        "details": "These are the details for guitar with slug: " + slug,
     }
     return render(request, 'guitars/guitar.html', context)
