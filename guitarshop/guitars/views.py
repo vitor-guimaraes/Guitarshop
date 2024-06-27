@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, HttpResponseRedirect, Http404
 from datetime import date
 from django.urls import reverse
 
@@ -44,4 +44,8 @@ def guitar_list(request):
 
 
 def guitar_details(request, slug):
-    return render(request, "guitars/guitar.html")
+    context = {
+        'slug': slug,
+        'details': 'These are the details for guitar with slug: ' + slug,
+    }
+    return render(request, 'guitars/guitar.html', context)
